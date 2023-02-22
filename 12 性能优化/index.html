@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>asdsasdsdasdasdasdasdasdasdasdasdaasdasd</div>
+    <input type="text">
+    <button>按钮</button>
+    <script type="module">
+        import {
+            onLCP,
+            onCLS,
+            onFID,
+            onFCP,
+            onINP,
+            onTTFB
+        } from 'https://unpkg.com/web-vitals@3?module';
+        onLCP(console.log);
+        onCLS(console.log);
+        onFID(console.log);
+        onFCP(console.log);
+        onINP(console.log);
+        onTTFB(console.log);
+    </script>
+    <script>
+        // var observer = new PerformanceObserver(function (list, obj) {
+        //     for (const entry of list.getEntries()) {
+        //         const delay = entry.processingStart - entry.startTime;
+        //         entry.entryType === "first-input" && console.log("first-input", entry.processingStart - entry.startTime);
+        //         entry.entryType === "largest-contentful-paint" && console.log(entry);
+        //     }
+        // });
+        // observer.observe({ entryTypes: ["element", "event", "first-input", "largest-contentful-paint", "layout-shift", "longtask", "mark", "measure", "navigation", "paint", "resource"] });
+        function delay(duration) {
+            var start = Date.now();
+            while (Date.now() - start < duration) { }
+        }
+        // delay(5000)
+        setTimeout(() => {
+            document.body.append('<div>123</div>')
+        }, 10000);
+        // document.querySelector('button').onclick = () => {
+        //     delay(5000)
+        // }
+    </script>
+    <!-- <img src="https://img6.bdstatic.com/img/image/public/helian.jpg" alt=""> -->
+</body>
+
+
+</html>

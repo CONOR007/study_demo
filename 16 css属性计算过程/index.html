@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        color: red;
+    }
+</style>
+
+<body>
+
+    <body>
+        <h1>这是一个h1标题</h1>
+        <div>
+            <a href="">test</a>
+            <p>test</p>
+        </div>
+        <span>123</span>
+    </body>
+</body>
+<script>
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync('span { color: red;!importent }');// Combine existing sheets with our new one:
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+</script>
+
+</html>

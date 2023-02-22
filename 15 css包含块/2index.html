@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /**
+        transform 或 perspective 的值不是 none
+        will-change 的值是 transform 或 perspective
+        filter 的值不是 none 或 will-change 的值是 filter(只在 Firefox 下生效).
+        contain 的值是 paint (例如: contain: paint;)
+        */
+        .container {
+            width: 500px;
+            height: 300px;
+            background-color: skyblue;
+            position: relative;
+        }
+
+        .item {
+            width: 300px;
+            height: 150px;
+            border: 5px solid;
+            margin-left: 100px;
+            /* 属性允许开发者声明当前元素和它的内容尽可能的独立于 DOM 树的其他部分。
+            这使得浏览器在重新计算布局、样式、绘图、大小或这四项的组合时，只影响到有限的 DOM 区域，而不是整个页面，可以有效改善性能。 */
+            contain:paint
+            /* will-change:此功能某些浏览器尚在开发中，请使用前缀. */
+            /* 告知浏览器该元素会有哪些变化的方法 */
+            /* will-change:transform; */
+            /* will-change:perspective; */
+
+            /* perspective:指定了观察者与 z=0 平面的距离，使具有三维位置变换的元素产生透视效果。 */
+            /* 当该属性值不为 0 和 none 时，会创建新的 层叠上下文。在这种情况下，容器内元素的层叠关系像是使用了 position: fixed 一样。 */
+            /* perspective:800px; */
+            
+            /* 选装 */
+            /* transform: rotate(0deg); */
+            
+        }
+
+        .item2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="item2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

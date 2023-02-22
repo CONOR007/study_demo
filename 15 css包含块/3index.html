@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Illustration of containing blocks</title>
+  </head>
+  <!-- 如果元素的 positiion 是 relative 或 static ，
+    那么包含块由离它最近的**块容器（block container）**
+    的内容区域（content area）的边缘建立。(说出如下各元素包含块) -->
+  <body id="body">
+    <div id="div1">
+      <p id="p1">This is text in the first paragraph...</p>
+      <p id="p2">
+        This is text
+        <!--em1的包含块是P2 -->
+        <em id="em1"> 
+          in the
+          <!--strong的包含块也是P2 -->
+          <strong id="strong1">second</strong>
+          paragraph.
+        </em>
+      </p>
+    </div>
+  </body>
+</html>

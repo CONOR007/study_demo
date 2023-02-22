@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Illustration of containing blocks</title>
+  </head>
+  <style>
+    #div1 { 
+      position: absolute; 
+      left: 50px; top: 50px 
+    }
+  </style>
+  <!-- 初始包含块（initial containing block）。
+    对于浏览器而言，初始包含块的的大小等于视口 viewport 的大小，基点在画布的原点（视口左上角）。
+    它是作为元素绝对定位和固定定位的参照物。
+    如果元素使用了 absolute 定位，则包含块由它的最近的 position 的值不是 static （也就是值为fixed、absolute、relative 或 sticky）的祖先元素的内边距区的边缘组成。 -->
+  <body id="body">
+    <!--div1的包含块是初始包含块(视窗) -->
+    <div id="div1">
+      <p id="p1">This is text in the first paragraph...</p>
+      <p id="p2">
+        This is text
+        <!--em1的包含块是P2 -->
+        <em id="em1"> 
+          in the
+          <!--strong的包含块也是P2 -->
+          <strong id="strong1">second</strong>
+          paragraph.
+        </em>
+      </p>
+    </div>
+  </body>
+</html>
