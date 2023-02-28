@@ -19,9 +19,10 @@
     <script src="./防抖.js"></script>
     <script>
       const cb = function (...params) {
+        console.log(this);
         console.log(params);
       };
-      const fn = debounce2(cb, 2000, "a", "b", "c");
+      const fn = debounce(cb, 2000, "a", "b", "c");
       fn();
     </script>
   </body>

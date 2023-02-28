@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES Module</title>
+  </head>
+  <body>
+    hahhha
+  </body>
+  <script type="module">
+    console.log("2");
+  </script>
+  <!-- 1 自动采用严格模式，忽略 'user strict' -->
+  <script type="module">
+    console.log("3", this);
+  </script>
+  <!-- 2 每个 ES Module 都是运行在单独的私有作用域中 -->
+  <script type="module">
+    var foo = 100;
+    console.log("4", foo);
+  </script>
+  <script type="module">
+    //console.log(foo); // Uncaught ReferenceError: foo is not defined
+  </script>
+  <!-- 3 ESM 通过 CORS 请求外部 JS 模块 -->
+  <script type="module">
+    import { onLCP } from "https://unpkg.com/web-vitals@3?module";
+    console.log("5", onLCP);
+  </script>
+  <!-- 4 ESM 的 script 标签是异步的,会延迟执行脚本 -->
+  <script>
+    console.log("1"); // 最先执行
+  </script>
+  <!-- 5 ESM 通过export default或export导出,通过import导入 -->
+  <!-- 6 import会被提升(在内部被提升到当前作用域的最开始) 所以是先执行6再执行7-->
+  <script type="module">
+    // import name, { helloBoy, Person } from "./3.模块化-esmodule.js";
+    // or
+    console.log(7);
+    import { helloBoy, Person, default as name2 } from "./3.模块化-esmodule.js";
+    // 导出
+    export { helloBoy, Person, default as name } from "./3.模块化-esmodule.js";
+  </script>
+  <!-- 7 在node中如果要使用ESM.js文件名后缀需要用.mjs -->
+</html>
